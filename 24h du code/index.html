@@ -1,12 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<!-- Pour dire c est du htlm au navigateur -->
+<html lang="fr"> 
+<!-- Langue par defauts du site -->
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kmvh</title>
+
+  <meta charset="utf-8"> 
+  <!-- l'encodage de caractères utilisé du site -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <!-- Pour l adaptativité du site sur mobile -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <!-- Compatibilite avec edge -->
+  <title>Code de base html</title> 
+  <!-- Titre de la page -->
+  <link rel="stylesheet" href="style.css"> <style></style> 
+  <!-- Link Css dans le sources ou ecris ton Css entre <style></style> -->
+  <script src="main.js"></script>
+  <!-- Link Js dans le sources ou ecris ton Js entre >< -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
+  <!-- Bibliothèques Pour les icon -->
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
+  <!-- Le site :https://ionic.io/ionicons -->
+
 </head>
-<body>
+
+    <body>
+      <img src="/KVMH/kvmhLogo_Blanc.png" alt="kvmhLogo" class="logo"/>
+        
+        <div class="un">
+          <input type="text" id="input" >
+          <ion-icon name="search-outline" class="icon"></ion-icon>
+        </div>
+
+        <div class="button-container">
+          <ion-icon name="dice-outline" class="button1"  href="#" id="random-article-icon"></ion-icon>
+        </div>
+        <div class="container">
+          <img src="/Nuages/Nuage 3.png" class="object" style="top:45%; left: -40%;" data-value="-2" alt="">
+          <img src="/Nuages/Nuage 4.png" class="object" style="top:-45%; left: -40%;" data-value="2" alt="">
+          <img src="/Nuages/Nuage 3.png" class="object" style="top:-40%; left: 40%;" data-value="-3" alt="">
+          <img src="/Nuages/Nuage 4.png" class="object" style="top: 40%; left: 40%;" data-value="2" alt="">
+        </div>
     
-</body>
+        <script type="text/javascript">
+        document.addEventListener("mousemove", parallax);
+        function parallax(e){
+          
+          document.querySelectorAll(".object").forEach(function(move){
+    
+            var moving_value = move.getAttribute("data-value");
+            var x = (e.clientX * moving_value) / 250;
+            var y = (e.clientY * moving_value) / 250;
+    
+            move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
+          });
+        }
+
+              var wikiUrls = [
+          "https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard",
+          "https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard",
+          "https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard",
+          "https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard",
+          "https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard"
+        ];
+
+        var randomWikiUrl = wikiUrls[Math.floor(Math.random() * wikiUrls.length)];
+
+        document.getElementById("random-article-icon").addEventListener("click", function() {
+          window.location.href = randomWikiUrl;
+        });
+              </script>
+
+    
+        <style>
+    
+    .container{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      z-index: -200;
+    }
+    
+    .container img{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: contain;
+      transform: translate(-50%, -50%);
+      
+    }
+
+        </style>
+        
+    </body>
 </html>

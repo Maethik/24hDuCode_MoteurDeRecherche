@@ -1,5 +1,7 @@
-const icon = document.getElementById("random-article-icon");
+const searchIcon = document.getElementById('search-icon');
+const form = document.querySelector('form');
 
-icon.addEventListener("click", function() {
-  window.location.href = "https://fr.wikipedia.org/wiki/Special:Random";
+searchIcon.addEventListener('click', function(event) {
+  event.preventDefault();
+  form.submit();
 });

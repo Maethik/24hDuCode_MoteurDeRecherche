@@ -25,13 +25,94 @@
 </head>
 
     <body>
-      <img src="/KVMH/kvmhLogo_Blanc.png" alt="kvmhLogo" class="logo"/>
-        
-        <div class="un">
-          <input type="text" id="input" >
-          <ion-icon name="search-outline" class="icon"></ion-icon>
-        </div>
+      <img src="/KVMH/kvmhLogo_Blanc.png" alt="kvmhLogo" class="logo"/>    
 
+      
+
+
+
+
+
+
+
+
+
+
+      <style>
+
+        
+        .test48 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: #c1dffc;
+          border-radius: 20px;
+          height: 15vh;
+          min-width: 15vw;
+          box-shadow: 4px 4px 8px 3px #870e95;
+        }
+      </style>
+      
+      <form action="https://fr.wikipedia.org/wiki/" method="get" class="un" id="myForm" onsubmit="submitForm(event)">
+        <input type="text" id="input" name="recherche">
+        <ion-icon name="search-outline" class="icon" id="search-icon" onclick="submitForm(event)"></ion-icon>
+      </form>
+      
+      <div class="test48" style="display:none;">
+        <div>
+          <h1 id="userInput"></h1>
+          <button onclick="goBack()" style="display: flex;align-items: center;justify-content: center;">Come Back</button>
+        </div>
+      </div>
+      
+      <script>
+        function submitForm(event) {
+          event.preventDefault();
+          const userInput = document.getElementById('input').value;
+          document.getElementById('userInput').textContent = userInput;
+          document.getElementById('myForm').style.display = 'none';
+          document.querySelector('.test48').style.display = 'flex';
+        }
+      
+        function goBack() {
+          document.querySelector('.test48').style.display = 'none';
+          document.getElementById('myForm').style.display = 'flex';
+          document.getElementById('input').value = '';
+        }
+      </script>
+      
+      
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </script>
         <div class="button-container">
           <ion-icon name="dice-outline" class="button1"  href="#" id="random-article-icon"></ion-icon>
         </div>
@@ -41,7 +122,6 @@
           <img src="/Nuages/Nuage 3.png" class="object" style="top:-40%; left: 40%;" data-value="-3" alt="">
           <img src="/Nuages/Nuage 4.png" class="object" style="top: 40%; left: 40%;" data-value="2" alt="">
         </div>
-    
         <script type="text/javascript">
         document.addEventListener("mousemove", parallax);
         function parallax(e){
@@ -69,7 +149,7 @@
         document.getElementById("random-article-icon").addEventListener("click", function() {
           window.location.href = randomWikiUrl;
         });
-              </script>
+        </script>
 
     
         <style>
@@ -100,3 +180,8 @@
         
     </body>
 </html>
+
+
+
+
+
